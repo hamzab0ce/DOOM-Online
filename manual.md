@@ -13,5 +13,4 @@ Disparar: S<br>
 Correr: Espacio<br>
 Activar movimiento lateral: ALT<br>
 Inclinarse: A, D
-
 Cambiar de arma: 1, 2, 3, 4, 5, 6, 7
