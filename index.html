@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="es-es">
   <head>
+  <script type="text/javascript" src="https://hamzab0ce.github.io/DOOM-Online/js-dos-api.js"></script>
+  <body style="background-color:#121212; color: white">
+<style>
+    #DOOM > .dosbox-container { width: 640px; height: 400px; }
+    #DOOM > .dosbox-container > .dosbox-overlay { background: url("https://hamzab0ce.github.io/DOOM-Online/DOOM.jpg"); }
+    #DOOM > .dosbox-container > .dosbox-overlay > .dosbox-start {
+        border-radius: 17px 17px 17px 17px;
+        -moz-border-radius: 17px 17px 17px 17px;
+        -webkit-border-radius: 17px 17px 17px 17px;
     <script type="text/javascript" src="https://hamzab0ce.github.io/DOOM-Online/js-dos-api.js"></script>
     <style>
       body {
@@ -15,8 +24,8 @@
         font-family: Arial, sans-serif;
       }
       #DOOM > .dosbox-container {
-        width: 800px; /* Ajustamos la resolución a 800x600 */
-        height: 600px; /* Resolución 800x600 */
+        width: 640px;
+        height: 400px;
       }
       #DOOM > .dosbox-container > .dosbox-overlay {
         background: url("https://hamzab0ce.github.io/DOOM-Online/DOOM.jpg");
@@ -30,6 +39,14 @@
         vertical-align: middle;
         width: 10em;
         margin: 0 auto;
+    }
+    a:link {color:white}
+</style>
+<h1>Juega DOOM en el navegador!!!</h1>
+<footer>©hamzab0ce</footer>
+<h3><a href="https://github.com/hamzab0ce/DOOM-Online/blob/main/manual.md">Instrucciones</a></h3>
+<div style="margin-top:20px;" id="DOOM" class="dosbox-default"></div>
+<p><br /><a id="fullscreen_DOOM" href="javascript: void 0;" class="fa-solid fa-expand"></a>&nbsp;&nbsp;PANTALLA COMPLETA</p>
       }
       a:link {
         color: white;
@@ -46,6 +63,16 @@
     <p><br /><a id="fullscreen_DOOM" href="javascript: void 0;">PANTALLA COMPLETA</a></p>
     <footer>&copy;hamzab0ce</footer>
 
+<script type="text/javascript">
+  var dosbox_DOOM = new Dosbox({
+    id: "DOOM",
+    onload: function (dosbox) {
+      dosbox_DOOM.run("https://hamzab0ce.github.io/DOOM-Online/DOOM.zip", "./DOOM/DOOM.EXE");
+    },
+    onrun: function (dosbox, app) {
+      console.log("App '" + app + "' is runned");
+    }
+  });
     <script type="text/javascript">
       var dosbox_DOOM = new Dosbox({
         id: "DOOM",
@@ -57,9 +84,14 @@
         }
       });
 
+  document.getElementById("fullscreen_DOOM").addEventListener("click", function() {
+    dosbox_DOOM.requestFullScreen();
+  });
+</script>
       document.getElementById("fullscreen_DOOM").addEventListener("click", function() {
         dosbox_DOOM.requestFullScreen();
       });
     </script>
   </body>
 </html>
+</html
